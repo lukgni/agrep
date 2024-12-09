@@ -103,16 +103,14 @@ func (m *MemoryAllocator) Alloc(size uintptr) (MemPtr, error) {
 }
 
 func (m *MemoryAllocator) PrintMemoryUtilization() {
-	fmt.Printf("\n--Memory Allocator Stats---\n")
-	fmt.Printf("  Memory Block (Page) Size: %d\n", SMemoryBlockSize)
-	fmt.Printf("  Number of allocated pages: %d\n", len(m.pageTable))
-	fmt.Printf("\n  Page space utilization:\n")
+	fmt.Printf("\n-- Memory Allocator Stats\n")
+	fmt.Printf("   Memory Block (Page) Size: %d\n", SMemoryBlockSize)
+	fmt.Printf("   Number of allocated pages: %d\n", len(m.pageTable))
+	fmt.Printf("\n   Page space utilization:\n")
 
 	for i := 0; i < len(m.pageTable); i++ {
-		fmt.Printf("    * Page %d - free space: %d bytes\n", i, m.pageTable[uint16(i)].freeSpace())
+		fmt.Printf("     * Page %d - free space: %d bytes\n", i, m.pageTable[uint16(i)].freeSpace())
 	}
-	fmt.Printf("---------------------------\n")
-
 }
 
 func (p MemPtr) Get(T interface{}) error {

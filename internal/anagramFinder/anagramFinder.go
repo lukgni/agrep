@@ -63,7 +63,6 @@ func findAnagramFromTextFile(pattern string, createIndexFile bool, filePath stri
 		hashTable.DumpMemoryIntoFile(getIndexFileName(filePath))
 	}
 
-	hashTable.PrintMemoryUtilization()
 	return result, nil
 }
 

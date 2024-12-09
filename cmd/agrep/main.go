@@ -11,9 +11,9 @@ import (
 func main() {
 	argParser := argParser.ArgumentParser{}
 
-	filePath := argParser.PositionalArgument("file", "file that consists of alphabetically sorted strings")
-	pattern := argParser.PositionalArgument("pattern", "text pattern that will be used to search for anagrams.")
-	createIndexFile := argParser.BooleanFlag("create-index", "enable b-tree indexing over searching")
+	filePath := argParser.PositionalArgument("file", "text file or hash index file (.idx)")
+	pattern := argParser.PositionalArgument("pattern", "text pattern that will be used to search for anagrams")
+	createIndexFile := argParser.BooleanFlag("create-index", "create hash index file based on passed input")
 
 	argParser.Parse()
 
@@ -24,9 +24,9 @@ func main() {
 	}
 
 	if foundAnagram != nil {
-		fmt.Printf("Anagram found: [%d] %s\n", foundAnagram.LineIndex, foundAnagram.Value)
+		fmt.Printf("-- Anagram found: [%d] %s\n", foundAnagram.LineIndex, foundAnagram.Value)
 	} else {
-		fmt.Println("Anagram not found...")
+		fmt.Println("-- Anagram not found...")
 	}
 
 	hashTable.PrintMemoryUtilization()
