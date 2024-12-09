@@ -2,7 +2,17 @@
 # agrep 
 ### Anagram Goofy Exploration and Pattern-Matcher
 
-`agrep` is a command-line tool designed for searching first anagram of a specified pattern in a given file. It supports optional creation of a hash index to optimize search performance when using as an input file.
+`agrep` is a command-line tool designed for searching first anagram of a specified pattern in a given file.
+
+Inspired by the indexing techniques used in database systems, this tool efficiently handles large files (e.g., 4GB) by implementing custom indexing, memory management, and page-based storage to optimize performance.
+
+## Features
+
+- **Efficient Search**: The program can find the first anagram of a specified phrase in a text file.
+- **Custom Hash Table**: `agrep` uses a custom hash table optimized for large datasets. The hash table uses a page-based memory storage format, similar to how PostgreSQL organizes index data in memory pages. This format enables efficient data management, as it groups data into fixed-size pages for faster access.
+- **File Indexing**: When enabled, the program indexes large text files and stores the custom hash table in a separate index file. This index file can be passed as an argument in place of the original text file for faster searches.
+- **Custom Memory Allocator**: The custom memory allocator enables the hash table to be dumped to disk in the page-based format, then loaded back into memory, improving performance for large datasets.
+
 
 ## Usage
 
