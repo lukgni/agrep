@@ -42,7 +42,7 @@ To search for the first anagram of the phrase `iba` and create a hash index file
 ```bash
 ./agrep --create-index ./testdata/dictionary.txt iba
 ```
-Note: Creating index file require to read whole file!
+Note: Creating index file requires to read the whole file!
 
 Above command will give us this output:
 ```
@@ -53,10 +53,10 @@ Above command will give us this output:
 ...
 ```
 
-Once the index file is created, it can be used for improved performance.
+Once the `.idx` index file is created, it can be used for improved performance.
 
 ```bash
-./agrep --create-index ./testdata/dictionary.idx iba
+./agrep ./testdata/dictionary.idx iba
 ```
 
 This will return line index of original file where first anagram of `iba` can be found: 
